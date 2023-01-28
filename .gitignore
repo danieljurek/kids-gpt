@@ -1,4 +1,4 @@
 .env
 say/
 *conversation-*.txt
-gpt-cli
+kids-gpt

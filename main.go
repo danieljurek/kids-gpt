@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"context"
-	"danieljurek/gpt-cli/config"
+	"danieljurek/kids-gpt/config"
 	"errors"
 	"fmt"
 	"log"
@@ -49,6 +49,7 @@ func say(text string, voice string) {
 	// Don't write the user's string directly into exec, use a file to prevent
 	// injections. There may be happier ways to do this that don't involve as
 	// many i/o round trips.
+	os.Mkdir("say", os.ModePerm)
 	f, err := os.CreateTemp("say", "say-")
 	if err != nil {
 		log.Fatal(err)

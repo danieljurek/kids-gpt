@@ -1,4 +1,4 @@
-module danieljurek/gpt-cli
+module danieljurek/kids-gpt
 
 go 1.19
 
