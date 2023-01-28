@@ -15,17 +15,17 @@ child the ability to play with GPT-3. Use configuration `.yml` files.
 
 Set the API key
 
-```bash 
+```bash
 export OPENAI_KEY=<your key>
 ```
 
 Build
 
-```bash 
+```bash
 go build
 ```
 
-Run 
+Run
 ```
 ./kids-gpt story.yml
 ```
