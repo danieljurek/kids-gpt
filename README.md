@@ -10,7 +10,6 @@ child the ability to play with GPT-3. Use configuration `.yml` files.
 * An OpenAI account and API key
 * Go tools
 
-
 ### How to use
 
 Set the API key
@@ -26,7 +25,8 @@ go build
 ```
 
 Run
-```
+
+```bash
 ./kids-gpt story.yml
 ```
 
