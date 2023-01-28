@@ -3,7 +3,7 @@
 A console application for macOS that uses dictation and `say` which gives a
 child the ability to play with GPT-3. Use configuration `.yml` files.
 
-![Screeshot of Kids GPT](https://user-images.githubusercontent.com/2158838/215277967-7335deb6-a91e-4fb5-9597-e2688f414361.png)
+![Screenshot of Kids GPT](https://user-images.githubusercontent.com/2158838/215277967-7335deb6-a91e-4fb5-9597-e2688f414361.png)
 
 ### Pre-requisites
 
