@@ -3,24 +3,37 @@ package main
 import (
 	"bufio"
 	"context"
+	"danieljurek/gpt-cli/config"
+	"errors"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
+	"os/signal"
 	"strings"
 	"time"
 
 	"github.com/briandowns/spinner"
 	gogpt "github.com/sashabaranov/go-gpt3"
-	"gopkg.in/yaml.v2"
 )
+
+var sessionConfig config.Config
 
 func readString() string {
 	reader := bufio.NewReader(os.Stdin)
-	input, err := reader.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
+
+	var input string
+	var err error
+	for {
+		input, err = reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		input = strings.TrimSuffix(input, "\n")
+		if input != "" {
+			break
+		}
 	}
 
 	// Remove delimiter
@@ -33,8 +46,10 @@ func sayText(text string) {
 }
 
 func say(text string, voice string) {
-	// TODO: put this in a temp folder
-	f, err := os.CreateTemp("/tmp", "say-")
+	// Don't write the user's string directly into exec, use a file to prevent
+	// injections. There may be happier ways to do this that don't involve as
+	// many i/o round trips.
+	f, err := os.CreateTemp("say", "say-")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -44,37 +59,64 @@ func say(text string, voice string) {
 	f.Close()
 
 	// TODO: run this asynchronously so the UI doesn't appear to hang
-	cmd := exec.Command("say", "--input-file", f.Name(), "--voice", voice)
+	cmd := exec.Command(
+		"say",
+		"--input-file", f.Name(),
+		"--voice", voice,
+		"--interactive=/blue",
+		"--rate", fmt.Sprint(sessionConfig.Speed))
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
 
 	if err := cmd.Run(); err != nil {
 		fmt.Printf("Error: %s\n", err)
 	}
 }
 
-func completeGpt3(prompt string, client *gogpt.Client, ctx *context.Context) string {
-	req := gogpt.CompletionRequest{
-		Model:     gogpt.GPT3TextDavinci003,
-		MaxTokens: 1024,
-		Prompt:    prompt,
+func moderateGpt3(prompt string, client *gogpt.Client, ctx *context.Context) (bool, error) {
+	textModerationLatest := "text-moderation-latest"
+	req := gogpt.ModerationRequest{
+		Input: prompt,
+		Model: &textModerationLatest,
 	}
-	resp, err := client.CreateCompletion(*ctx, req)
+
+	resp, err := client.Moderations(*ctx, req)
 	if err != nil {
 		say("There was an error. Please go get dad.", "Zarvox")
 		log.Fatal(err)
 	}
 
-	return resp.Choices[0].Text
+	for _, result := range resp.Results {
+		if result.Flagged {
+			return false, errors.New("I will not respond to mean things. Please start over.")
+		}
+	}
+	return true, nil
 }
 
-type Config struct {
-	InitialPrompt  string
-	SpinnerCharset int
-	StopSequence   string
-	UserName       string
-	GptName        string
+func completeGpt3(prompt string, client *gogpt.Client, ctx *context.Context) (string, error) {
+	if _, err := moderateGpt3(prompt, client, ctx); err != nil {
+		return "", err
+	}
+
+	// TODO: handle error
+	config, _ := config.GetConfig()
+
+	req := gogpt.CompletionRequest{
+		Model:     gogpt.GPT3TextDavinci003,
+		MaxTokens: 1024,
+		Prompt:    prompt,
+		Stop:      []string{config.UserName},
+	}
+	resp, err := client.CreateCompletion(*ctx, req)
+	if err != nil {
+		return "", err
+	}
+
+	return resp.Choices[0].Text, nil
 }
 
-func logConversation(conversation string) {
+func logConversation(conversation *string) {
 	filename := fmt.Sprintf("conversation-%d.txt", time.Now().Unix())
 	f, err := os.Create(filename)
 	if err != nil {
@@ -82,42 +124,59 @@ func logConversation(conversation string) {
 	}
 	defer f.Close()
 
-	f.WriteString(conversation)
+	f.WriteString(*conversation)
 }
 
 func main() {
-	yamlFile, err := ioutil.ReadFile("config.yml")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	var config Config
-	err = yaml.Unmarshal(yamlFile, &config)
-
 	gptClient := gogpt.NewClient(os.Getenv("OPENAI_KEY"))
 	ctx := context.Background()
 
-	var conversation, gptResponse, trimmedResponse string
-	conversation = config.InitialPrompt
-	defer logConversation(conversation)
+	sessionConfig, err := config.GetConfig()
+	if err != nil {
+		log.Fatalf("There was an error: %s", err)
+	}
+
+	conversation := sessionConfig.InitialPrompt
+	stopSequence := sessionConfig.StopSequence
+	userName := sessionConfig.UserName
+	gptName := sessionConfig.GptName
+
+	// Log conversation in a normal exit
+	defer logConversation(&conversation)
+
+	// Log conversation in the event of Ctrl+C (SIGNIT)
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt)
+	go func() {
+		<-c
+		logConversation(&conversation)
+		os.Exit(1)
+	}()
+
+	var gptResponse, trimmedResponse string
 
 	spinner := spinner.New(
-		spinner.CharSets[config.SpinnerCharset],
+		spinner.CharSets[33],
 		250*time.Millisecond)
 
-	for true {
+	for {
 		spinner.Start()
-		gptResponse = completeGpt3(conversation, gptClient, &ctx)
+		gptResponse, err = completeGpt3(conversation, gptClient, &ctx)
 		spinner.Stop()
+
+		if err != nil {
+			say("Something went wrong. Go get dad.", "Zarvox")
+			log.Fatalf("There was an error: %s", err)
+		}
 
 		trimmedResponse = strings.TrimSuffix(
 			strings.Trim(gptResponse, "\n"),
-			config.StopSequence)
-		fmt.Printf("%s: %s\n", config.GptName, trimmedResponse)
+			stopSequence)
+		fmt.Printf("%s: ", gptName)
 		conversation += gptResponse + "\n"
 		sayText(trimmedResponse)
 
-		if strings.Contains(gptResponse, config.StopSequence) {
+		if strings.Contains(gptResponse, stopSequence) {
 			break
 		}
 
@@ -125,9 +184,9 @@ func main() {
 		input := readString()
 		conversation += fmt.Sprintf(
 			"\n%s: %s\n%s: ",
-			config.UserName,
+			userName,
 			input,
-			config.GptName)
+			gptName)
 	}
 
 	fmt.Println("Conversation complete.")

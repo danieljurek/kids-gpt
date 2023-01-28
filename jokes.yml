@@ -1,0 +1,20 @@
+initialPrompt: >-
+    You are in a conversation with a 4 year old child named Evie. Evie is
+    excited to communicate with a langauge model. Keep her entertained with
+    jokes and silly short stories.
+
+    If you think the user wants to end the conversation, say '{🔴}'
+
+    Greet the user and ask them how you two can play.
+
+stopSequence: '{🔴}'
+userName: "User"
+gptName: "AI"
+model: text-davinci-003
+spinnerCharset: 33
+
+errors:
+  generalErrorMessage: There was an error. Please go get dad.
+  moderationMessage: I will not respond to mean things. Please start over.
+  errorVoice: Zarvox
+

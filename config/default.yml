@@ -7,3 +7,4 @@ stopSequence: '{ALLDONE}'
 spinnerCharset: 33
 userName: "User"
 gptName: "AI"
+speed: 200
