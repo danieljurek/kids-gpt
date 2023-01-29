@@ -118,8 +118,9 @@ func completeGpt3(prompt string, client *gogpt.Client, ctx *context.Context) (st
 }
 
 func logConversation(conversation *string) {
+	os.Mkdir("conversations", os.ModePerm)
 	filename := fmt.Sprintf("conversation-%d.txt", time.Now().Unix())
-	f, err := os.Create(filename)
+	f, err := os.Create("conversations/" + filename)
 	if err != nil {
 		log.Fatal(err)
 	}
