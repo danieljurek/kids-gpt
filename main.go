@@ -2,11 +2,14 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"context"
 	"danieljurek/kids-gpt/config"
 	"errors"
 	"fmt"
+	"io"
 	"log"
+	"net/http"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -18,6 +21,36 @@ import (
 )
 
 var sessionConfig config.Config
+
+func elevenlabsTTS(text string, apiKey string) {
+	// TODO: Clone dad's voice and use that instead of Bella or Samantha https://beta.elevenlabs.io/voice-lab
+	url := "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL" // Bella (American, soft)
+	jsonStr := []byte(`{"text": "` + text + `"}`)
+	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonStr))
+	req.Header.Set("accept", "audio/mpeg")
+	req.Header.Set("xi-api-key", apiKey)
+	req.Header.Set("Content-Type", "application/json")
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer resp.Body.Close()
+
+	out, err := os.Create("audio.mp3")
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer out.Close()
+	_, err = io.Copy(out, resp.Body)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	cmd := exec.Command("afplay", "audio.mp3")
+	cmd.Run()
+}
 
 func readString() string {
 	reader := bufio.NewReader(os.Stdin)
@@ -118,8 +151,9 @@ func completeGpt3(prompt string, client *gogpt.Client, ctx *context.Context) (st
 }
 
 func logConversation(conversation *string) {
+	os.Mkdir("conversations", os.ModePerm)
 	filename := fmt.Sprintf("conversation-%d.txt", time.Now().Unix())
-	f, err := os.Create(filename)
+	f, err := os.Create("conversations/" + filename)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -175,7 +209,9 @@ func main() {
 			stopSequence)
 		fmt.Printf("%s: ", gptName)
 		conversation += gptResponse + "\n"
-		sayText(trimmedResponse)
+		// sayText(trimmedResponse) // TODO: set as default?
+		// elevenlabsTTS might take too long. Needs more testing.
+		elevenlabsTTS(trimmedResponse, os.Getenv("ELEVENLABS_KEY"))
 
 		if strings.Contains(gptResponse, stopSequence) {
 			break
