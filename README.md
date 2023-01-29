@@ -16,6 +16,7 @@ Set the API key
 
 ```bash
 export OPENAI_KEY=<your key>
+export ELEVENLABS_KEY=<your key>
 ```
 
 Build
