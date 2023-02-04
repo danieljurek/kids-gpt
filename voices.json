@@ -1,0 +1,435 @@
+{
+    "elevenlabs": [
+        {
+            "voice_id": "21m00Tcm4TlvDq8ikWAM",
+            "name": "Rachel (american, mellow)",
+            "category": "conversational",
+            "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/21m00Tcm4TlvDq8ikWAM/dff5d82d-d16d-45b9-ae73-be2ad8850855.mp3",
+        },
+        {
+            "voice_id": "AZnzlk1XvdvUeBnXmlld",
+            "name": "Domi (american, engaged)",
+            "category": "dynamic",
+            "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/AZnzlk1XvdvUeBnXmlld/53bd2f5f-bb59-4146-9922-245b2a466c80.mp3",
+        },
+        {
+            "voice_id": "EXAVITQu4vr4xnSDxMaL",
+            "name": "Bella (American, soft)",
+            "category": "conversational",
+            "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/EXAVITQu4vr4xnSDxMaL/53bd2f5f-bb59-4146-8822-245b2a466c80.mp3",
+        },
+        {
+            "voice_id": "ErXwobaYiN019PkySvjV",
+            "name": "Antoni (American, modulated)",
+            "category": "conversational",
+            "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/ErXwobaYiN019PkySvjV/53bd2f5f-bb59-1111-8822-225b2a466c80.mp3",
+        },
+        {
+            "voice_id": "MF3mGyEYCl7XYWbV9V6O",
+            "name": "Elli (american, clear)",
+            "category": "dynamic",
+            "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/MF3mGyEYCl7XYWbV9V6O/bea2dc16-9abf-4162-b011-66531458e022.mp3",
+        },
+        {
+            "voice_id": "TxGEqnHWrfWFTfGW9XjX",
+            "name": "Josh (american, silvery)",
+            "category": "conversational",
+            "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/TxGEqnHWrfWFTfGW9XjX/bdc4303c-a20d-4cec-97eb-dca625044eac.mp3",
+        },
+        {
+            "voice_id": "VR6AewLTigWG4xSOukaG",
+            "name": "Arnold (american, nasal)",
+            "category": "conversational",
+            "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/VR6AewLTigWG4xSOukaG/2c4395e7-91b1-44cd-8f0f-e4aebd292461.mp3",
+        },
+        {
+            "voice_id": "pNInz6obpgDQGcFmaJgB",
+            "name": "Adam (American, clear)",
+            "category": "conversational",
+            "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/pNInz6obpgDQGcFmaJgB/53bd2f5f-bb59-1111-8822-245b2a466c80.mp3",
+        },
+        {
+            "voice_id": "yoZ06aMxZJJ28mfd3POQ",
+            "name": "Sam (american, dynamic)",
+            "category": "dynamic",
+            "preview_url": "https://storage.googleapis.com/eleven-public-prod/premade/voices/yoZ06aMxZJJ28mfd3POQ/1c4d417c-ba80-4de8-874a-a1c57987ea63.mp3",
+        }
+    ],
+    "osx": [
+        {
+            "name": "Agnes",
+            "language": "en_US",
+            "quote": "Isn't it nice to have a computer that will talk to you?"
+        },
+        {
+            "name": "Albert",
+            "language": "en_US",
+            "quote": "I have a frog in my throat. No, I mean a real frog!"
+        },
+        {
+            "name": "Alex",
+            "language": "en_US",
+            "quote": "Most people recognize me by my voice."
+        },
+        {
+            "name": "Alice",
+            "language": "it_IT",
+            "quote": "Salve, mi chiamo Alice e sono una voce italiana."
+        },
+        {
+            "name": "Alva",
+            "language": "sv_SE",
+            "quote": "Hej, jag heter Alva. Jag är en svensk röst."
+        },
+        {
+            "name": "Amelie",
+            "language": "fr_CA",
+            "quote": "Bonjour, je m’appelle Amelie. Je suis une voix canadienne."
+        },
+        {
+            "name": "Anna",
+            "language": "de_DE",
+            "quote": "Hallo, ich heiße Anna und ich bin eine deutsche Stimme."
+        },
+        {
+            "name": "Bad News",
+            "language": "en_US",
+            "quote": "The light you see at the end of the tunnel is the headlamp of a fast approaching train."
+        },
+        {
+            "name": "Bahh",
+            "language": "en_US",
+            "quote": "Do not pull the wool over my eyes."
+        },
+        {
+            "name": "Bells",
+            "language": "en_US",
+            "quote": "Time flies when you are having fun."
+        },
+        {
+            "name": "Boing",
+            "language": "en_US",
+            "quote": "Spring has sprung, fall has fell, winter's here and it's colder than usual."
+        },
+        {
+            "name": "Bruce",
+            "language": "en_US",
+            "quote": "I sure like being inside this fancy computer"
+        },
+        {
+            "name": "Bubbles",
+            "language": "en_US",
+            "quote": "Pull the plug! I'm drowning!"
+        },
+        {
+            "name": "Carmit",
+            "language": "he_IL",
+            "quote": "שלום. קוראים לי כרמית, ואני קול בשפה העברית."
+        },
+        {
+            "name": "Cellos",
+            "language": "en_US",
+            "quote": "Doo da doo da dum dee dee doodly doo dum dum dum doo da doo da doo da doo da doo da doo da doo"
+        },
+        {
+            "Name": "Damayanti",
+            "Language": "id_ID",
+            "Description": "# Halo, nama saya Damayanti. Saya berbahasa Indonesia."
+        },
+        {
+            "Name": "Daniel",
+            "Language": "en_GB",
+            "Description": "# Hello, my name is Daniel. I am a British-English voice."
+        },
+        {
+            "Name": "Deranged",
+            "Language": "en_US",
+            "Description": "# I need to go on a really long vacation."
+        },
+        {
+            "Name": "Diego",
+            "Language": "es_AR",
+            "Description": "# Hola, me llamo Diego y soy una voz española."
+        },
+        {
+            "Name": "Ellen",
+            "Language": "nl_BE",
+            "Description": "# Hallo, mijn naam is Ellen. Ik ben een Belgische stem."
+        },
+        {
+            "Name": "Fiona",
+            "Language": "en-scotland",
+            "Description": "# Hello, my name is Fiona. I am a Scottish-English voice."
+        },
+        {
+            "Name": "Fred",
+            "Language": "en_US",
+            "Description": "# I sure like being inside this fancy computer"
+        },
+        {
+            "Name": "Good News",
+            "Language": "en_US",
+            "Description": "# Congratulations you just won the sweepstakes and you don't have to pay income tax again."
+        },
+        {
+            "Name": "Hysterical",
+            "Language": "en_US",
+            "Description": "# Please stop tickling me!"
+        },
+        {
+            "Name": "Ioana",
+            "Language": "ro_RO",
+            "Description": "# Bună, mă cheamă Ioana . Sunt o voce românească."
+        },
+        {
+            "Name": "Joana",
+            "Language": "pt_PT",
+            "Description": "# Olá, chamo-me Joana e dou voz ao português falado em Portugal."
+        },
+        {
+            "Name": "Junior",
+            "Language": "en_US",
+            "Description": "# My favorite food is pizza."
+        },
+        {
+            "Name": "Kanya",
+            "Language": "th_TH",
+            "Description": "# สวัสดีค่ะ ดิฉันชื่อKanya"
+        },
+        {
+            "Name": "Karen",
+            "Language": "en_AU",
+            "Description": "# Hello, my name is Karen. I am an Australian-English voice."
+        },
+        {
+            "Name": "Kathy",
+            "Language": "en_US",
+            "Description": "# Isn't it nice to have a computer that will talk to you?"
+        },
+        {
+            "name": "Kyoko",
+            "languageCode": "ja_JP",
+            "description": "# こんにちは、私の名前はKyokoです。日本語の音声をお届けします。"
+        },
+        {
+            "name": "Laura",
+            "languageCode": "sk_SK",
+            "description": "# Ahoj. Volám sa Laura . Som hlas v slovenskom jazyku."
+        },
+        {
+            "name": "Lekha",
+            "languageCode": "hi_IN",
+            "description": "# नमस्कार, मेरा नाम लेखा है.Lekha[[FEMALE_NAME]]मै हिंदी मे बोलने वाली आवाज़ हूँ."
+        },
+        {
+            "name": "Luciana",
+            "languageCode": "pt_BR",
+            "description": "# Olá, o meu nome é Luciana e a minha voz corresponde ao português que é falado no Brasil"
+        },
+        {
+            "name": "Mariska",
+            "languageCode": "hu_HU",
+            "description": "# Üdvözlöm! Mariska vagyok. Én vagyok a magyar hang."
+        },
+        {
+            "name": "Mei-Jia",
+            "languageCode": "zh_TW",
+            "description": "# 您好，我叫美佳。我說國語。"
+        },
+        {
+            "name": "Melina",
+            "languageCode": "el_GR",
+            "description": "# Γεια σας, ονομάζομαι Melina. Είμαι μια ελληνική φωνή."
+        },
+        {
+            "name": "Milena",
+            "languageCode": "ru_RU",
+            "description": "# Здравствуйте, меня зовут Milena. Я – русский голос системы."
+        },
+        {
+            "name": "Moira",
+            "languageCode": "en_IE",
+            "description": "# Hello, my name is Moira. I am an Irish-English voice."
+        },
+        {
+            "name": "Monica",
+            "languageCode": "es_ES",
+            "description": "# Hola, me llamo Monica y soy una voz española."
+        },
+        {
+            "Name": "Nora",
+            "Language": "nb_NO",
+            "Description": "# Hei, jeg heter Nora. Jeg er en norsk stemme."
+        },
+        {
+            "Name": "Paulina",
+            "Language": "es_MX",
+            "Description": "# Hola, me llamo Paulina y soy una voz mexicana."
+        },
+        {
+            "Name": "Pipe Organ",
+            "Language": "en_US",
+            "Description": "# We must rejoice in this morbid voice."
+        },
+        {
+            "Name": "Princess",
+            "Language": "en_US",
+            "Description": "# When I grow up I'm going to be a scientist."
+        },
+        {
+            "Name": "Ralph",
+            "Language": "en_US",
+            "Description": "# The sum of the squares of the legs of a right triangle is equal to the square of the hypotenuse."
+        },
+        {
+            "Name": "Samantha",
+            "Language": "en_US",
+            "Description": "# Hello, my name is Samantha. I am an American-English voice."
+        },
+        {
+            "Name": "Sara",
+            "Language": "da_DK",
+            "Description": "# Hej, jeg hedder Sara. Jeg er en dansk stemme."
+        },
+        {
+            "Name": "Satu",
+            "Language": "fi_FI",
+            "Description": "# Hei, minun nimeni on Satu. Olen suomalainen ääni."
+        },
+        {
+            "Name": "Sin-ji",
+            "Language": "zh_HK",
+            "Description": "# 您好，我叫 Sin-ji。我講廣東話。"
+        },
+        {
+            "Name": "Tarik",
+            "Language": "ar_SA",
+            "Description": "# مرحبًا اسمي Tarik. أنا عربي من السعودية."
+        },
+        {
+            "Name": "Tessa",
+            "Language": "en_ZA",
+            "Description": "# Hello, my name is Tessa. I am a South African-English voice."
+        },
+        {
+            "Name": "Nora",
+            "Language": "nb_NO",
+            "Description": "# Hei, jeg heter Nora. Jeg er en norsk stemme."
+        },
+        {
+            "Name": "Paulina",
+            "Language": "es_MX",
+            "Description": "# Hola, me llamo Paulina y soy una voz mexicana."
+        },
+        {
+            "Name": "Pipe Organ",
+            "Language": "en_US",
+            "Description": "# We must rejoice in this morbid voice."
+        },
+        {
+            "Name": "Princess",
+            "Language": "en_US",
+            "Description": "# When I grow up I'm going to be a scientist."
+        },
+        {
+            "Name": "Ralph",
+            "Language": "en_US",
+            "Description": "# The sum of the squares of the legs of a right triangle is equal to the square of the hypotenuse."
+        },
+        {
+            "Name": "Samantha",
+            "Language": "en_US",
+            "Description": "# Hello, my name is Samantha. I am an American-English voice."
+        },
+        {
+            "Name": "Sara",
+            "Language": "da_DK",
+            "Description": "# Hej, jeg hedder Sara. Jeg er en dansk stemme."
+        },
+        {
+            "Name": "Satu",
+            "Language": "fi_FI",
+            "Description": "# Hei, minun nimeni on Satu. Olen suomalainen ääni."
+        },
+        {
+            "Name": "Sin-ji",
+            "Language": "zh_HK",
+            "Description": "# 您好，我叫 Sin-ji。我講廣東話。"
+        },
+        {
+            "Name": "Tarik",
+            "Language": "ar_SA",
+            "Description": "# مرحبًا اسمي Tarik. أنا عربي من السعودية."
+        },
+        {
+            "Name": "Tessa",
+            "Language": "en_ZA",
+            "Description": "# Hello, my name is Tessa. I am a South African-English voice."
+        },
+        {
+            "Name": "Thomas",
+            "Language": "fr_FR",
+            "Description": "# Bonjour, je m’appelle Thomas. Je suis une voix française."
+        },
+        {
+            "Name": "Ting-Ting",
+            "Language": "zh_CN",
+            "Description": "# 您好，我叫Ting-Ting。我讲中文普通话。"
+        },
+        {
+            "Name": "Trinoids",
+            "Language": "en_US",
+            "Description": "# We cannot communicate with these carbon units."
+        },
+        {
+            "Name": "Veena",
+            "Language": "en_IN",
+            "Description": "# Hello, my name is Veena. I am an Indian-English voice."
+        },
+        {
+            "Name": "Vicki",
+            "Language": "en_US",
+            "Description": "# Isn't it nice to have a computer that will talk to you?"
+        },
+        {
+            "Name": "Victoria",
+            "Language": "en_US",
+            "Description": "# Isn't it nice to have a computer that will talk to you?"
+        },
+        {
+            "Name": "Whisper",
+            "Language": "en_US",
+            "Description": "# Pssssst, hey you, Yeah you, Who do ya think I'm talking to, the mouse?"
+        },
+        {
+            "Name": "Xander",
+            "Language": "nl_NL",
+            "Description": "# Hallo, mijn naam is Xander. Ik ben een Nederlandse stem."
+        },
+        {
+            "Name": "Yelda",
+            "Language": "tr_TR",
+            "Description": "# Merhaba, benim adım Yelda. Ben Türkçe bir sesim."
+        },
+        {
+            "Name": "Yuna",
+            "Language": "ko_KR",
+            "Description": "# 안녕하세요. 제 이름은 Yuna입니다. 저는 한국어 음성입니다."
+        },
+        {
+            "Name": "Zarvox",
+            "Language": "en_US",
+            "Description": "# That looks like a peaceful planet."
+        },
+        {
+            "Name": "Zosia",
+            "Language": "pl_PL",
+            "Description": "# Witaj. Mam na imię Zosia, jestem głosem kobiecym dla języka polskiego."
+        },
+        {
+            "Name": "Zuzana",
+            "Language": "cs_CZ",
+            "Description": "# Dobrý den, jmenuji se Zuzana. Jsem český hlas."
+        }
+    ]
+}
